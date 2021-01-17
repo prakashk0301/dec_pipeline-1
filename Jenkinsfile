@@ -28,6 +28,16 @@ pipeline
         {
             steps { sh "echo QA-env-deploy" }
         }
+         
+        stage ('Get approval from release maanger')
+        {
+            steps { input "Please approve for Prod deployment?" }
+        }
+
+        stage ('deploy-Prod-env')
+        {
+            steps { sh "echo Prod-env-deploy" }
+        }
 
      }
 }
